@@ -1,20 +1,4 @@
-Kode HTML dan CSS kamu sebenarnya sudah benar. Yang bermasalah hanya URL background.
 
-Link ini:
-
-url('https://www.magnific.com/free-psd/3d-background-with-modern-emojis_58509094.htm...')
-
-adalah halaman web Magnific, bukan file gambar langsung. Jadi browser tidak akan menampilkannya sebagai background.
-
-Solusi
-Buka halaman tersebut di browser.
-Download gambar emoji background yang kamu inginkan.
-Simpan ke folder yang sama dengan file HTML, misalnya:
-EmojiSearch/
-│
-├── index.html
-└── emoji-bg.jpg
-Ganti bagian CSS menjadi:
 body{
     height:100vh;
     background:
