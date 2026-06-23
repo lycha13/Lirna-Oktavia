@@ -1,0 +1,488 @@
+Kode HTML dan CSS kamu sebenarnya sudah benar. Yang bermasalah hanya URL background.
+
+Link ini:
+
+url('https://www.magnific.com/free-psd/3d-background-with-modern-emojis_58509094.htm...')
+
+adalah halaman web Magnific, bukan file gambar langsung. Jadi browser tidak akan menampilkannya sebagai background.
+
+Solusi
+Buka halaman tersebut di browser.
+Download gambar emoji background yang kamu inginkan.
+Simpan ke folder yang sama dengan file HTML, misalnya:
+EmojiSearch/
+│
+├── index.html
+└── emoji-bg.jpg
+Ganti bagian CSS menjadi:
+body{
+    height:100vh;
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.4)
+    ),
+    url('emoji-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+Preview Tampilan Setelah Background Berhasil
+┌─────────────────────────────────────────────┐
+│ Gmail   Emoji   ⠿   👤                      │
+│                                             │
+│              EmojiSearch                    │
+│                                             │
+│  [ Cari emoji Anda....               ]      │
+│                                             │
+│      😊      ❤️      👍                     │
+│    Smile  Favorit  Populer                  │
+│                                             │
+│ 😀 😁 😂 🤣 😊 😍 😎 🤔 😭 😡 ❤️ 👍 🔥 🎉 ⭐ 🚀 │
+└─────────────────────────────────────────────┘
+
+Dengan background emoji 3D dari Magnific di belakang, tampilan akan terlihat seperti halaman pencarian emoji modern.
+
+Kalau kamu ingin background langsung dari internet tanpa download, kamu harus menggunakan URL gambar yang berakhiran .jpg, .png, atau .webp, bukan URL halaman .htm.
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmojiSearch</title>
+
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    height:100vh;
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.4)
+    ),
+    url('');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+header{
+    display:flex;
+    justify-content:flex-end;
+    padding:20px;
+}
+
+ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+    align-items:center;
+    color:white;
+    font-weight:bold;
+}
+
+main{
+    min-height:85vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    font-size:80px;
+    margin-bottom:25px;
+    color:white;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.6);
+}
+
+input{
+    width:700px;
+    max-width:90%;
+    padding:15px 25px;
+    border:1px solid #ccc;
+    border-radius:30px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus{
+    box-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+
+.icon{
+    font-size:28px;
+    cursor:pointer;
+    padding:6px;
+    border-radius:50%;
+    transition:0.3s;
+}
+
+.icon:hover{
+    background:white;
+    color:black;
+}
+
+.navbawah{
+    margin-top:30px;
+}
+
+.kelompoklink{
+    display:flex;
+    gap:40px;
+}
+
+.item-link{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+}
+
+.lingkaran{
+    width:60px;
+    height:60px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    transition:0.3s;
+}
+
+.lingkaran:hover{
+    background:#ddd;
+    transform:scale(1.1);
+    cursor:pointer;
+}
+
+.teks{
+    color:white;
+    font-weight:bold;
+}
+
+.emoji-list{
+    margin-top:40px;
+    background:rgba(255,255,255,0.88);
+    padding:20px;
+    border-radius:15px;
+    font-size:40px;
+    text-align:center;
+    max-width:850px;
+}
+
+.emoji-list span{
+    margin:8px;
+    display:inline-block;
+    transition:0.3s;
+}
+
+.emoji-list span:hover{
+    transform:scale(1.3);
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li>Gmail</li>
+            <li>Emoji</li>
+            <li>
+                <span class="material-icons icon">apps</span>
+            </li>
+            <li>
+                <span class="material-icons icon">account_circle</span>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <h1>EmojiSearch </h1>
+
+    <input type="text" placeholder="Cari emoji Anda....">
+
+    <div class="navbawah">
+
+        <div class="kelompoklink">
+
+            <div class="item-link">
+                <div class="lingkaran">😊</div>
+                <div class="teks">Smile</div>
+            </div>
+
+            <div class="item-link">
+                <div class="lingkaran">❤️</div>
+                <div class="teks">Favorit</div>
+            </div>
+
+            <div class="item-link">
+                <div class="lingkaran">👍</div>
+                <div class="teks">Populer</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="emoji-list">
+        <span>😀</span>
+        <span>😁</span>
+        <span>😂</span>
+        <span>🤣</span>
+        <span>😊</span>
+        <span>😍</span>
+        <span>😎</span>
+        <span>🤔</span>
+        <span>😭</span>
+        <span>😡</span>
+        <span>❤️</span>
+        <span>👍</span>
+        <span>🔥</span>
+        <span>🎉</span>
+        <span>⭐</span>
+        <span>🚀</span>
+    </div>
+
+</main>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EmojiSearch</title>
+
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    height:100vh;
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.4)
+    ),
+    url('https://www.magnific.com/free-psd/3d-background-with-modern-emojis_58509094.htm#fromView=keyword&page=1&position=0&uuid=30d5c35f-791f-4e7f-96f9-6fddca9398a2&query=Emoji+background+wallpaper?log-in=google');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+header{
+    display:flex;
+    justify-content:flex-end;
+    padding:20px;
+}
+
+ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+    align-items:center;
+    color:white;
+    font-weight:bold;
+}
+
+main{
+    min-height:85vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    font-size:80px;
+    margin-bottom:25px;
+    color:white;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.6);
+}
+
+input{
+    width:700px;
+    max-width:90%;
+    padding:15px 25px;
+    border:1px solid #ccc;
+    border-radius:30px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus{
+    box-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+
+.icon{
+    font-size:28px;
+    cursor:pointer;
+    padding:6px;
+    border-radius:50%;
+    transition:0.3s;
+}
+
+.icon:hover{
+    background:white;
+    color:black;
+}
+
+.navbawah{
+    margin-top:30px;
+}
+
+.kelompoklink{
+    display:flex;
+    gap:40px;
+}
+
+.item-link{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+}
+
+.lingkaran{
+    width:60px;
+    height:60px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    transition:0.3s;
+}
+
+.lingkaran:hover{
+    background:#ddd;
+    transform:scale(1.1);
+    cursor:pointer;
+}
+
+.teks{
+    color:white;
+    font-weight:bold;
+}
+
+.emoji-list{
+    margin-top:40px;
+    background:rgba(255,255,255,0.88);
+    padding:20px;
+    border-radius:15px;
+    font-size:40px;
+    text-align:center;
+    max-width:850px;
+}
+
+.emoji-list span{
+    margin:8px;
+    display:inline-block;
+    transition:0.3s;
+}
+
+.emoji-list span:hover{
+    transform:scale(1.3);
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li>Gmail</li>
+            <li>Emoji</li>
+            <li>
+                <span class="material-icons icon">apps</span>
+            </li>
+            <li>
+                <span class="material-icons icon">account_circle</span>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <h1>EmojiSearch </h1>
+
+    <input type="text" placeholder="Cari emoji Anda....">
+
+    <div class="navbawah">
+
+        <div class="kelompoklink">
+
+            <div class="item-link">
+                <div class="lingkaran">😊</div>
+                <div class="teks">Smile</div>
+            </div>
+
+            <div class="item-link">
+                <div class="lingkaran">❤️</div>
+                <div class="teks">Favorit</div>
+            </div>
+
+            <div class="item-link">
+                <div class="lingkaran">👍</div>
+                <div class="teks">Populer</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="emoji-list">
+        <span>😀</span>
+        <span>😁</span>
+        <span>😂</span>
+        <span>🤣</span>
+        <span>😊</span>
+        <span>😍</span>
+        <span>😎</span>
+        <span>🤔</span>
+        <span>😭</span>
+        <span>😡</span>
+        <span>❤️</span>
+        <span>👍</span>
+        <span>🔥</span>
+        <span>🎉</span>
+        <span>⭐</span>
+        <span>🚀</span>
+    </div>
+
+</main>
+
+</body>
+</html>
